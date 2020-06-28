@@ -4,6 +4,8 @@ from flask import (
     Blueprint,
 )
 
+from pingpong.service.pingpong_service import PingPongService
+
 class PingPongView:
 
     """ 핑퐁 뷰
@@ -22,4 +24,7 @@ class PingPongView:
 
     @pingpong_app.route('', methods = ['GET'])
     def ping():
-        return "Hi there, pong"
+        pingpong_service = PingPongService()
+        result = pingpong_service.ping()
+
+        return result
