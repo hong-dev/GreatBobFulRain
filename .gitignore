@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/vim,flask,macos,python,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim,flask,macos,python,linux
 
+###personal###
+config.py
+*.txt
+
 ### Flask ###
 instance/*
 !instance/.gitignore
