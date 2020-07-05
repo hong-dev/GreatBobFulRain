@@ -5,7 +5,7 @@ from flask import (
 )
 
 from room.service.room_service import RoomService
-from connection import get_db_connection
+from connection                import get_db_connection
 
 class RoomView:
     room_app = Blueprint('room_app', __name__, url_prefix='/room')
@@ -16,7 +16,7 @@ class RoomView:
             db_connection = get_db_connection()
             if db_connection:
                 room_service = RoomService()
-                room_list = room_service.get_room_list(db_connection)
+                room_list    = room_service.get_room_list(db_connection)
                 return room_list
 
             return jsonify({'message': 'NO_DATABASE_CONNECTION'}), 500

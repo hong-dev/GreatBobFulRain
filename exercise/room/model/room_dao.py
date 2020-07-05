@@ -39,6 +39,7 @@ class RoomDao:
                 return jsonify({'message': 'ROOM_DOES_NOT_EXIST'}), 404
 
         except Error as e:
+            pass
             print(f'DATABASE_CURSOR_ERROR_WITH {e}')
             db_connection.rollback()
             return jsonify({'message': 'DB_CURSOR_ERROR'}), 500
