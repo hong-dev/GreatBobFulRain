@@ -1,6 +1,6 @@
 import pymysql
 
-from config import DATABASES
+from config_rest import DATABASES
 
 def get_db_connection():
 

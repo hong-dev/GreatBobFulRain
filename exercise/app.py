@@ -1,8 +1,9 @@
-from flask      import Flask
-from flask_cors import CORS
+from flask                       import Flask
+from flask_cors                  import CORS
+from flask_graphql               import GraphQLView
 
 from pingpong.view.pingpong_view import PingPongView
-from room.view.room_view import RoomView
+from room.view.room_view         import RoomView
 
 def create_app():
     """
