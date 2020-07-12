@@ -5,6 +5,7 @@
 ###personal###
 config.py
 *.txt
+yoyo-local.ini
 
 ### Flask ###
 instance/*
