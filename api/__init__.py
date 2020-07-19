@@ -1,8 +1,16 @@
 import graphene
 
-from .schema import Query
-from .service import UserService
-from .model import UserDao
+from .schema  import Query
+from .service import (
+    UserService,
+    RoomService,
+    StoreService
+)
+from .model   import (
+    UserDao,
+    RoomDao,
+    StoreDao
+)
 
 __all__ = ['schema', 'get_services']
 
@@ -13,9 +21,13 @@ class Services:
 
 def get_services(db):
     # Instantiage DAOs
-    user_dao = UserDao(db)
+    user_dao  = UserDao(db)
+    room_dao  = RoomDao(db)
+    store_dao = StoreDao(db)
 
     services = Services()
-    services.user_service = UserService(user_dao)
-    
+    services.user_service  = UserService(user_dao)
+    services.room_service  = RoomService(room_dao)
+    services.store_service = StoreService(store_dao)
+
     return services
