@@ -7,3 +7,6 @@ class RoomService:
 
     def get_rooms(self, limit, offset, status):
         return self.room_dao.get_rooms(limit, offset, status)
+
+    def create_room(self, room_input):
+        return self.room_dao.create_room(**room_input)

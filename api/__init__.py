@@ -1,6 +1,6 @@
 import graphene
 
-from .schema  import Query
+from .schema  import Query, Mutations
 from .service import (
     UserService,
     RoomService,
@@ -14,7 +14,7 @@ from .model   import (
 
 __all__ = ['schema', 'get_services']
 
-schema = graphene.Schema(query = Query)
+schema = graphene.Schema(query = Query, mutation = Mutations)
 
 class Services:
     pass

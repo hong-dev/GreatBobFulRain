@@ -1,3 +1,3 @@
-from .schema import Query
+from .schema import Query, Mutations
 
-__all__ = ['Query']
+__all__ = ['Query', 'Mutations']
