@@ -25,10 +25,10 @@ class RoomDao:
 
     def create_room(
         self,
-        name = None,
-        closed_at = None,
+        name       = None,
+        closed_at  = None,
         creator_id = None,
-        store_id = None
+        store_id   = None
     ):
         return self.db.execute(text("""
             INSERT INTO rooms (
