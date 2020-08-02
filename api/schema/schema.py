@@ -1,7 +1,7 @@
 import graphene
 
 from .user  import User
-from .room  import Room
+from .room  import Room, CreateRoom
 from .store import Store
 
 class Query(graphene.ObjectType):
@@ -45,3 +45,6 @@ class Query(graphene.ObjectType):
         offset   = graphene.Int(default_value = 0),
         resolver = Store.resolve_stores
     )
+
+class Mutations(graphene.ObjectType):
+    create_room = CreateRoom.Field()

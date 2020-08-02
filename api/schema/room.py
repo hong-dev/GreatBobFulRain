@@ -3,6 +3,28 @@ import graphene
 from .user  import User
 from .store import Store
 
+
+class RoomInput(graphene.InputObjectType):
+    name       = graphene.String(required = True)
+    closed_at  = graphene.types.datetime.DateTime()
+    creator_id = graphene.ID()
+    store_id   = graphene.ID()
+
+class CreateRoom(graphene.Mutation):
+    class Arguments:
+        room_input = RoomInput()
+
+    id = graphene.ID()
+
+    def mutate(
+        root,
+        info,
+        room_input = None
+    ):
+        room_id = info.context.room_service.create_room(room_input)
+
+        return CreateRoom(id = room_id)
+
 class RoomStatus(graphene.ObjectType):
     id         = graphene.Int()
     name       = graphene.String()

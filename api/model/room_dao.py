@@ -23,6 +23,32 @@ class RoomDao:
     def __init__(self, db):
         self.db = db
 
+    def create_room(
+        self,
+        name = None,
+        closed_at = None,
+        creator_id = None,
+        store_id = None
+    ):
+        return self.db.execute(text("""
+            INSERT INTO rooms (
+                name,
+                closed_at,
+                creator_id,
+                store_id
+            ) VALUES (
+                :name,
+                :closed_at,
+                :creator_id,
+                :store_id
+            )
+        """), {
+            'name'       : name,
+            'closed_at'  : closed_at,
+            'creator_id' : creator_id,
+            'store_id'   : store_id
+        }).lastrowid
+
     def get_room(self, id):
         room = self.db.execute(text("""
             SELECT
