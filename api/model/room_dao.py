@@ -100,9 +100,9 @@ class RoomDao:
 
             ORDER BY
                 CASE room_status_id
-                    WHEN 1 THEN rooms.closed_at  END ASC,
+                    WHEN 1 THEN rooms.closed_at END ASC,
                 CASE room_status_id
-                    WHEN 2 THEN rooms.created_at END DESC
+                    WHEN 2 THEN rooms.closed_at END DESC
 
             LIMIT  :limit
             OFFSET :offset
