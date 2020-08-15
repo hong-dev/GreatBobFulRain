@@ -2,6 +2,7 @@ import config
 
 from flask         import Flask
 from flask_graphql import GraphQLView
+from flask_cors    import CORS
 from sqlalchemy    import create_engine
 
 from api           import schema, get_services
@@ -10,6 +11,7 @@ def create_app():
 
     app = Flask(__name__)
     app.config['DEBUG'] = True
+    CORS(app)
 
     db       = create_engine(config.DB_CONNECTION_URL)
     services = get_services(db)
